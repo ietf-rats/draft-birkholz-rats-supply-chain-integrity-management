@@ -41,6 +41,23 @@ Abstract
 
 Introduction
 
+# Terminology
+
+Actors:
+: Agent
+: Software Agent
+
+
+Roles:
+: SCIM Assertion-Set Generator
+:
+
+Messages:
+: tbd
+ 
+Ledger:
+: tbd
+
 ## Requirements Notation
 
 {::boilerplate bcp14-tagged}
@@ -48,11 +65,26 @@ Introduction
 {: #mybody}
 # SCIM
 
-# A mapping of SCIM and RATS
+## The SCIM Diagram
 
 ~~~~
 {::include simple-diagram.ascii}
 ~~~~
+
+# Issuers and Guaranteed Properties
+
+## Component Properties and End-to-End Properties
+
+You need sets of component properties to arrive at end-to-end properties.
+
+### Integrity of the Ledger
+
+* Role of Confidential Compute
+* Roots of trusts
+* Redundant Byzantine Fault Tolerance
+  * what does it mean to be faithful?
+  * what does it mean to be slow?
+  * what does it mean to be malicious?
 
 # CDDL
 
@@ -77,3 +109,9 @@ Security Considerations
 See Body {{mybody}}.
 
 --- back
+
+# Mapping to RATS
+
+~~~~
+{::include simple-diagram.ascii}
+~~~~
