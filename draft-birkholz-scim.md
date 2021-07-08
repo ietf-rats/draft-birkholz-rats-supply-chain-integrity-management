@@ -50,7 +50,7 @@ Introduction
 
 # A mapping of SCIM and RATS
 
-~~~~ goat
+~~~~
 {::include simple-diagram.ascii}
 ~~~~
 
