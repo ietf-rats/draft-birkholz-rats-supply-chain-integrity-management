@@ -1,6 +1,6 @@
  .---------------------.                    .---------------------.
 | SoftwareAgent:        |                  | Message:              |
-| SBOM Assertion-Set    |    generates     | SBOM Assertion Set    |
+| SCIM Assertion-Set    |    generates     | SCIM Assertion Set    |
 |      Generator        +----------------->|                       |
 | RATS Claims Generator |                  | RATS Claim            |
  '---------------------'                    '---------------------'
@@ -9,7 +9,7 @@
             |                                          |
  .----------+----------.                    .----------+----------.
 | Agent:                |                  | SoftwareAgent:        |
-| SBOM Issuer           |   generates +    | SBOM Header Adder &   |
+| SCIM Issuer           |   generates +    | SCIM Header Adder &   |
 |                       +----------------->|      Signer           |
 | RATS RP Owner         |  header-claims   | RATS Claim Collector  |
  '----------+----------'                    '----------+----------'
@@ -18,7 +18,7 @@
             v                                          v
  .---------------------.                    .---------------------.
 | SoftwareAgent:        |                  | Message:              |
-| SBOM ReceiptRequester |     consumes     | (COSE) Signed SBOM    |
+| SCIM ReceiptRequester |     consumes     | (COSE) Signed SCIM    |
 | RATS Attester         +----------------->|        Claims Set     |
 | RATS Relying Party    |                  | RATS Claim            |
  '----------+-----+----'                    '---------------------'
@@ -27,7 +27,7 @@
             v generates              | consumes          
  .---------------------.             |      .---------------------.
 | Message:              |            |     | Message:              |
-| SBOM ReceiptRequest   |             '--->| SBOM Receipt          |
+| SCIM ReceiptRequest   |             '--->| SCIM Receipt          |
 |                       |             .--->| RATS AR-augmented     |
 | RATS Evidence         |            |     | Evidence              |
  '----------+----------'             |      '---------------------'
@@ -36,7 +36,7 @@
             |     |
  .----------+-----+----.                    .---------------------.
 | SoftwareAgent:        |                  | Agent:                |
-| SBOM Ledger Service   |     consumes     | SBOM Ledger Authority |
+| SCIM Ledger Service   |     consumes     | SCIM Ledger Authority |
 |                       +----------------->|                       |
 | RATS Endorsed Verifier|                  | RATS Verifier Owner   |
  '----------+----------'                    '----------+----------'
