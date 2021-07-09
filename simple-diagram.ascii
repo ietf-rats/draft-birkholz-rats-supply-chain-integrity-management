@@ -2,7 +2,6 @@
 | SoftwareAgent:        |                  | Message:              |
 | SCIM Assertion-Set    |    generates     | SCIM Assertion Set    |
 |      Generator        +----------------->|                       |
-| RATS Claims Generator |                  | RATS Claim            |
  '---------------------'                    '---------------------'
             ^                                          ^
             | owns                                     | consumes
@@ -11,41 +10,33 @@
 | Agent:                |                  | SoftwareAgent:        |
 | SCIM Issuer           |   generates +    | SCIM Header Adder &   |
 |                       +----------------->|      Signer           |
-| RATS RP Owner         |  header-claims   | RATS Claim Collector  |
- '----------+----------'                    '----------+----------'
+ '----------+----------'   header-claims    '----------+----------'
             |                                          |
             | owns                                     | generates
             v                                          v
  .---------------------.                    .---------------------.
 | SoftwareAgent:        |                  | Message:              |
 | SCIM ReceiptRequester |     consumes     | (COSE) Signed SCIM    |
-| RATS Attester         +----------------->|        Claims Set     |
-| RATS Relying Party    |                  | RATS Claim            |
+|                       +----------------->|        Claims Set     |
  '----------+-----+----'                    '---------------------'
             |     |                    
             |      '----------------.                  
             v generates              | consumes          
  .---------------------.             |      .---------------------.
-| Message:              |            |     | Message:              |
+| Message:              |             '--->| Message:              |
 | SCIM ReceiptRequest   |             '--->| SCIM Receipt          |
-|                       |             .--->| RATS AR-augmented     |
-| RATS Evidence         |            |     | Evidence              |
  '----------+----------'             |      '---------------------'
             ^ consumes               | generates        
             |      .----------------'                  
             |     |
  .----------+-----+----.                    .---------------------.
-| SoftwareAgent:        |                  | Agent:                |
-| SCIM Ledger Service   |     consumes     | SCIM Ledger Authority |
-|                       +----------------->|                       |
-| RATS Endorsed Verifier|                  | RATS Verifier Owner   |
+| SoftwareAgent:        |     consumes     | Agent:                |
+| SCIM Ledger Service   +----------------->| SCIM Ledger Authority |
  '----------+----------'                    '----------+----------'
             |                                          |
             | generates                                | owns      
             v                                          v
  .---------------------.                    .---------------------.
-| Messages:             |                  | SoftwareAgent:        |
-| Receipt Ledger        |     consumes     | "Store"               |
-|                       |<-----------------|                       |
-| RATS Evidence         |                  | RATS Verifier         |
+| Messages:             |     consumes     | SoftwareAgent:        |
+| Receipt Ledger        |<-----------------| "Store"               |
  '---------------------'                    '---------------------'
