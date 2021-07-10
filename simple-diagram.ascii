@@ -1,37 +1,34 @@
  .---------------------.                    .---------------------.
-| SoftwareAgent:        |                  | Message:              |
-| SCIM Assertion-Set    |    generates     | SCIM Assertion Set    |
-|      Generator        +----------------->|                       |
+| SoftwareAgent:        |    generates     | Message:              |
+| Evidence Generator    +----------------->| Evidence              |
  '---------------------'                    '---------------------'
             ^                                          ^
             | owns                                     | consumes
             |                                          |
  .----------+----------.                    .----------+----------.
-| Agent:                |                  | SoftwareAgent:        |
-| SCIM Issuer           |   generates +    | SCIM Header Adder &   |
-|                       +----------------->|      Signer           |
+| Agent:                |   generates +    | SoftwareAgent:        |
+| Issuer                +----------------->| Evidence Signer       |
  '----------+----------'   header-claims    '----------+----------'
             |                                          |
             | owns                                     | generates
             v                                          v
  .---------------------.                    .---------------------.
-| SoftwareAgent:        |                  | Message:              |
-| SCIM ReceiptRequester |     consumes     | (COSE) Signed SCIM    |
-|                       +----------------->|        Claims Set     |
+| SoftwareAgent:        |     consumes     | Message:              |
+| Receipt Requester     +----------------->| Signed Evidence       |
  '----------+-----+----'                    '---------------------'
             |     |                    
             |      '----------------.                  
             v generates              | consumes          
  .---------------------.             |      .---------------------.
 | Message:              |             '--->| Message:              |
-| SCIM ReceiptRequest   |             '--->| SCIM Receipt          |
+| Receipt Request       |             '--->| Receipt               |
  '----------+----------'             |      '---------------------'
             ^ consumes               | generates        
             |      .----------------'                  
             |     |
  .----------+-----+----.                    .---------------------.
 | SoftwareAgent:        |     consumes     | Agent:                |
-| SCIM Ledger Service   +----------------->| SCIM Ledger Authority |
+| Ledger Service        +----------------->| Ledger Authority      |
  '----------+----------'                    '----------+----------'
             |                                          |
             | generates                                | owns      
