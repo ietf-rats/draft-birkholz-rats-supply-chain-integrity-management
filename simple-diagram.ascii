@@ -7,7 +7,7 @@
             |                                          |
  .----------+----------.                    .----------+----------.
 | Agent:                |   generates +    | SoftwareAgent:        |
-| Issuer                +----------------->| Evidence Signer       |
+| Issuing Authority     +----------------->| Evidence Signer       |
  '----------+----------'   header-claims    '----------+----------'
             |                                          |
             | owns                                     | generates
