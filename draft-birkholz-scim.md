@@ -1,5 +1,5 @@
 ---
-title: Supply Chain Integrity Management
+title: Supply Chain Integrity Model
 abbrev: SCIM
 docname: draft-birkholz-scim-latest
 stand_alone: true
@@ -44,16 +44,28 @@ Introduction
 # Terminology
 
 Actors:
-: Agent
-: Software Agent
-
+: Agent - individual or organization.
+: Software Agent - software acting on behalf of an Agent.
 
 Roles:
-: SCIM Assertion-Set Generator
-:
+: Issuing Authority - Agent that issues Signed Evidence, e.g. Microsoft. 
+: Evidence Generator - Software Agent that generates unsigned Evidence, e.g. Office build system.
+: Evidence Signer - Software Agent that accepts unsigned Evidence and signs, e.g. Microsoft signing service.
+: Ledger Authority - Agent that governs an evidence registry, e.g. 'Microsoft', 'Global Supply Chain Consortium'.
+: Receipt Requestor - Software Agent that submits signed evidence to a Registry.
+: Ledger Service - Software Agent that accepts and logs Signed Evidence.
+: Evidence Store - Software Agent that supports query of Registered Evidence.
 
 Messages:
-: tbd
+: Evidence - unsigned Evidence.
+: Signed Evidence - evidence evidence wrapped with a header and signed.
+: Receipt Request - request to enter evidence in Registry.
+: Receipt - receipt issued by Registry verify signed evidence is registered.
+: Registered Evidence - (same as Receipt?)
+
+Questions:
+* How do we handle query and receipt of registered evidence in the model?
+* How do we handle policy and verification in the model?
  
 Ledger:
 : tbd
@@ -70,6 +82,16 @@ Ledger:
 ~~~~
 {::include simple-diagram.ascii}
 ~~~~
+
+# SCIM Roles and Messages
+
+## Roles
+
+### Claim-Set Generator
+
+### Issuer
+
+## Messages
 
 # Issuers and Guaranteed Properties
 
@@ -113,5 +135,5 @@ See Body {{mybody}}.
 # Mapping to RATS
 
 ~~~~
-{::include simple-diagram.ascii}
+{::include scim-rats.ascii}
 ~~~~
