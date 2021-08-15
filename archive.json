@@ -1,0 +1,97 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2021-08-15T01:05:15.893542+00:00",
+  "repo": "ietf-rats/draft-birkholz-scim",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "MDExOlB1bGxSZXF1ZXN0Njg1NTQ3ODIz",
+      "title": "Update simple-diagram.ascii",
+      "url": "https://github.com/ietf-rats/draft-birkholz-scim/pull/1",
+      "state": "MERGED",
+      "author": "kaywilliams",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Replace 'SBOM' with 'SCIM'",
+      "createdAt": "2021-07-07T22:17:51Z",
+      "updatedAt": "2021-07-08T08:52:41Z",
+      "baseRepository": "ietf-rats/draft-birkholz-scim",
+      "baseRefName": "main",
+      "baseRefOid": "7e28e9e7218b55ccc5d2f16bdaf756603ba040fe",
+      "headRepository": "kaywilliams/draft-birkholz-scim",
+      "headRefName": "patch-1",
+      "headRefOid": "1debbaf1d7327d1c60efd70d611de3b80315db9e",
+      "closedAt": "2021-07-08T08:52:40Z",
+      "mergedAt": "2021-07-08T08:52:40Z",
+      "mergedBy": "ietf-rats",
+      "mergeCommit": {
+        "oid": "0fe1f8d36d8f6f332183442d28997314f11755b6"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NzAxODA1ODk2",
+          "commit": {
+            "abbreviatedOid": "1debbaf"
+          },
+          "author": "ietf-rats",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-07-08T08:52:22Z",
+          "updatedAt": "2021-07-08T08:52:22Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+
+
+
+
+RATS Working Group                                                J. Doe
+Internet-Draft                                                 ACME Inc.
+Intended status: Standards Track                            12 July 2021
+Expires: 13 January 2022
+
+
+                      Supply Chain Integrity Model
+                       draft-birkholz-scim-latest
+
+Abstract
+
+   Abstract
+
+Discussion Venues
+
+   This note is to be removed before publishing as an RFC.
+
+   Discussion of this document takes place on the mailing list
+   (rats@ietf.org), which is archived at
+   https://mailarchive.ietf.org/arch/browse/rats/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/ietf-rats/draft-birkholz-rats-supply-chain-
+   integrity-management.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 13 January 2022.
+
+Copyright Notice
+
+   Copyright (c) 2021 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Simplified BSD License text
+   as described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Simplified BSD License.
+
+Table of Contents
+
+   1.  Introduction
+   2.  Terminology
+     2.1.  Requirements Notation
+   3.  SCIM
+     3.1.  The SCIM Diagram
+   4.  SCIM Roles and Messages
+     4.1.  Roles
+       4.1.1.  Claim-Set Generator
+       4.1.2.  Issuer
+     4.2.  Messages
+   5.  Issuers and Guaranteed Properties
+     5.1.  Component Properties and End-to-End Properties
+       5.1.1.  Integrity of the Ledger
+   6.  CDDL
+   7.  Privacy Considerations
+   8.  Security Considerations
+   9.  IANA Considerations
+   10. Normative References
+   Appendix A.  Mapping to RATS
+   Author's Address
+
+1.  Introduction
+
+   Introduction
+
+2.  Terminology
+
+   Actors:  Agent - individual or organization.
+
+      Software Agent - software acting on behalf of an Agent.
+
+   Roles:  Issuing Authority - Agent that issues Signed Evidence, e.g.
+      Microsoft.
+
+      Evidence Generator - Software Agent that generates unsigned
+      Evidence, e.g.  Office build system.
+
+      Evidence Signer - Software Agent that accepts unsigned Evidence
+      and signs, e.g.  Microsoft signing service.
+
+      Ledger Authority - Agent that governs an evidence registry, e.g.
+      'Microsoft', 'Global Supply Chain Consortium'.
+
+      Receipt Requestor - Software Agent that submits signed evidence to
+      a Registry.
+
+      Ledger Service - Software Agent that accepts and logs Signed
+      Evidence.
+
+      Evidence Store - Software Agent that supports query of Registered
+      Evidence.
+
+   Messages:  Evidence - unsigned Evidence.
+
+      Signed Evidence - evidence evidence wrapped with a header and
+      signed.
+
+      Receipt Request - request to enter evidence in Registry.
+
+      Receipt - receipt issued by Registry verify signed evidence is
+      registered.
+
+      Registered Evidence - (same as Receipt?)
+
+   Questions: * How do we handle query and receipt of registered
+   evidence in the model? * How do we handle policy and verification in
+   the model?
+
+   Ledger:  tbd
+
+2.1.  Requirements Notation
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+3.  SCIM
+
+3.1.  The SCIM Diagram
+
+    .---------------------.                    .---------------------.
+   | SoftwareAgent:        |    generates     | Message:              |
+   | Evidence Generator    +----------------->| Evidence              |
+    '---------------------'                    '---------------------'
+               ^                                          ^
+               | owns                                     | consumes
+               |                                          |
+    .----------+----------.                    .----------+----------.
+   | Agent:                |   generates +    | SoftwareAgent:        |
+   | Issuing Authority     +----------------->| Evidence Signer       |
+    '----------+----------'   header-claims    '----------+----------'
+               |                                          |
+               | owns                                     | generates
+               v                                          v
+    .---------------------.                    .---------------------.
+   | SoftwareAgent:        |     consumes     | Message:              |
+   | Receipt Requester     +----------------->| Signed Evidence       |
+    '----------+-----+----'                    '---------------------'
+               |     |
+               |      '----------------.
+               v generates              | consumes
+    .---------------------.             |      .---------------------.
+   | Message:              |             '--->| Message:              |
+   | Receipt Request       |             '--->| Receipt               |
+    '----------+----------'             |      '---------------------'
+               ^ consumes               | generates
+               |      .----------------'
+               |     |
+    .----------+-----+----.                    .---------------------.
+   | SoftwareAgent:        |     consumes     | Agent:                |
+   | Ledger Service        +----------------->| Ledger Authority      |
+    '----------+----------'                    '----------+----------'
+               |                                          |
+               | generates                                | owns
+               v                                          v
+    .---------------------.                    .---------------------.
+   | Messages:             |     consumes     | SoftwareAgent:        |
+   | Receipt Ledger        |<-----------------| "Store"               |
+    '---------------------'                    '---------------------'
+
+4.  SCIM Roles and Messages
+
+4.1.  Roles
+
+4.1.1.  Claim-Set Generator
+
+4.1.2.  Issuer
+
+4.2.  Messages
+
+5.  Issuers and Guaranteed Properties
+
+5.1.  Component Properties and End-to-End Properties
+
+   You need sets of component properties to arrive at end-to-end
+   properties.
+
+5.1.1.  Integrity of the Ledger
+
+   *  Role of Confidential Compute
+
+   *  Roots of trusts
+
+   *  Redundant Byzantine Fault Tolerance
+
+      -  what does it mean to be faithful?
+
+      -  what does it mean to be slow?
+
+      -  what does it mean to be malicious?
+
+6.  CDDL
+
+   See [I-D.ietf-sacm-coswid].
+
+   <CODE BEGINS>
+   ;{::include some.cddl}
+   <CODE ENDS>
+
+7.  Privacy Considerations
+
+   Privacy Considerations
+
+8.  Security Considerations
+
+   Security Considerations
+
+9.  IANA Considerations
+
+   See Body Section 3.
+
+10.  Normative References
+
+   [I-D.ietf-sacm-coswid]
+              Birkholz, H., Fitzgerald-McKay, J., Schmidt, C., and D.
+              Waltermire, "Concise Software Identification Tags", Work
+              in Progress, Internet-Draft, draft-ietf-sacm-coswid-17, 22
+              February 2021, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-sacm-coswid-17>.
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://datatracker.ietf.org/doc/html/rfc2119>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://datatracker.ietf.org/doc/html/rfc8174>.
+
+Appendix A.  Mapping to RATS
+
+    .---------------------.                    .---------------------.
+   | SoftwareAgent:        |                  | Message:              |
+   | SCIM Assertion-Set    |    generates     | SCIM Assertion Set    |
+   |      Generator        +----------------->|                       |
+   | RATS Claims Generator |                  | RATS Claim            |
+    '---------------------'                    '---------------------'
+               ^                                          ^
+               | owns                                     | consumes
+               |                                          |
+    .----------+----------.                    .----------+----------.
+   | Agent:                |                  | SoftwareAgent:        |
+   | SCIM Issuer           |   generates +    | SCIM Header Adder &   |
+   |                       +----------------->|      Signer           |
+   | RATS RP Owner         |  header-claims   | RATS Claim Collector  |
+    '----------+----------'                    '----------+----------'
+               |                                          |
+               | owns                                     | generates
+               v                                          v
+    .---------------------.                    .---------------------.
+   | SoftwareAgent:        |                  | Message:              |
+   | SCIM ReceiptRequester |     consumes     | (COSE) Signed SCIM    |
+   | RATS Attester         +----------------->|        Claims Set     |
+   | RATS Relying Party    |                  | RATS Claim            |
+    '----------+-----+----'                    '---------------------'
+               |     |
+               |      '----------------.
+               v generates              | consumes
+    .---------------------.             |      .---------------------.
+   | Message:              |            |     | Message:              |
+   | SCIM ReceiptRequest   |             '--->| SCIM Receipt          |
+   |                       |             .--->| RATS AR-augmented     |
+   | RATS Evidence         |            |     | Evidence              |
+    '----------+----------'             |      '---------------------'
+               ^ consumes               | generates
+               |      .----------------'
+               |     |
+    .----------+-----+----.                    .---------------------.
+   | SoftwareAgent:        |                  | Agent:                |
+   | SCIM Ledger Service   |     consumes     | SCIM Ledger Authority |
+   |                       +----------------->|                       |
+   | RATS Endorsed Verifier|                  | RATS Verifier Owner   |
+    '----------+----------'                    '----------+----------'
+               |                                          |
+               | generates                                | owns
+               v                                          v
+    .---------------------.                    .---------------------.
+   | Messages:             |                  | SoftwareAgent:        |
+   | Receipt Ledger        |     consumes     | "Store"               |
+   |                       |<-----------------|                       |
+   | RATS Evidence         |                  | RATS Verifier         |
+    '---------------------'                    '---------------------'
+
+Author's Address
+
+   John Doe
+   ACME Inc.
+   Loop Back 127
+   12712 Loopback
+   Germany
+
+   Email: john.doe@loopback
