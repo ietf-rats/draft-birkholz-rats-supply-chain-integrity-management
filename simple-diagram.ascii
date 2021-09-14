@@ -1,27 +1,27 @@
  .---------------------.                    .---------------------.
 | SoftwareAgent:        |    generates     | Message:              |
-| Evidence Generator    +----------------->| Evidence              |
+| Claim Generator       +----------------->| Claim                 |
  '---------------------'                    '---------------------'
             ^                                          ^
             | owns                                     | consumes
             |                                          |
  .----------+----------.                    .----------+----------.
 | Agent:                |   generates +    | SoftwareAgent:        |
-| Issuing Authority     +----------------->| Evidence Signer       |
+| Issuing Authority     +----------------->| Claim Signer          |
  '----------+----------'   header-claims    '----------+----------'
             |                                          |
             | owns                                     | generates
             v                                          v
  .---------------------.                    .---------------------.
 | SoftwareAgent:        |     consumes     | Message:              |
-| Receipt Requester     +----------------->| Signed Evidence       |
+| Receipt Requester     +----------------->| Signed Claim          |
  '----------+-----+----'                    '---------------------'
             |     |                    
             |      '----------------.                  
             v generates              | consumes          
  .---------------------.             |      .---------------------.
 | Message:              |             '--->| Message:              |
-| Receipt Request       |             '--->| Receipt               |
+| Receipt Request       |             '--->| Registered Claim      |
  '----------+----------'             |      '---------------------'
             ^ consumes               | generates        
             |      .----------------'                  
