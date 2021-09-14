@@ -4,8 +4,8 @@
 
 RATS Working Group                                                J. Doe
 Internet-Draft                                                 ACME Inc.
-Intended status: Standards Track                            12 July 2021
-Expires: 13 January 2022
+Intended status: Standards Track                       14 September 2021
+Expires: 18 March 2022
 
 
                       Supply Chain Integrity Model
@@ -42,7 +42,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 January 2022.
+   This Internet-Draft will expire on 18 March 2022.
 
 Copyright Notice
 
@@ -144,28 +144,28 @@ Table of Contents
 
     .---------------------.                    .---------------------.
    | SoftwareAgent:        |    generates     | Message:              |
-   | Evidence Generator    +----------------->| Evidence              |
+   | Claim Generator       +----------------->| Claim                 |
     '---------------------'                    '---------------------'
                ^                                          ^
                | owns                                     | consumes
                |                                          |
     .----------+----------.                    .----------+----------.
    | Agent:                |   generates +    | SoftwareAgent:        |
-   | Issuing Authority     +----------------->| Evidence Signer       |
+   | Issuing Authority     +----------------->| Claim Signer          |
     '----------+----------'   header-claims    '----------+----------'
                |                                          |
                | owns                                     | generates
                v                                          v
     .---------------------.                    .---------------------.
    | SoftwareAgent:        |     consumes     | Message:              |
-   | Receipt Requester     +----------------->| Signed Evidence       |
+   | Receipt Requester     +----------------->| Signed Claim          |
     '----------+-----+----'                    '---------------------'
                |     |
                |      '----------------.
                v generates              | consumes
     .---------------------.             |      .---------------------.
    | Message:              |             '--->| Message:              |
-   | Receipt Request       |             '--->| Receipt               |
+   | Receipt Request       |             '--->| Registered Claim      |
     '----------+----------'             |      '---------------------'
                ^ consumes               | generates
                |      .----------------'
@@ -238,9 +238,9 @@ Table of Contents
    [I-D.ietf-sacm-coswid]
               Birkholz, H., Fitzgerald-McKay, J., Schmidt, C., and D.
               Waltermire, "Concise Software Identification Tags", Work
-              in Progress, Internet-Draft, draft-ietf-sacm-coswid-17, 22
-              February 2021, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-sacm-coswid-17>.
+              in Progress, Internet-Draft, draft-ietf-sacm-coswid-18, 12
+              July 2021, <https://datatracker.ietf.org/doc/html/draft-
+              ietf-sacm-coswid-18>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,

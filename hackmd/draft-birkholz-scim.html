@@ -269,10 +269,15 @@ h4, h5, h6 {
 .author {
   padding-bottom: 0.3em;
 }
-#abstract+p, #abstract+p code, #abstract+p samp, #abstract+p tt {
+#abstract+p {
   font-size: 18px;
   line-height: 24px;
 }
+#abstract+p code, #abstract+p samp, #abstract+p tt {
+  font-size: 16px;
+  line-height: 0;
+}
+
 p {
   padding: 0;
   margin: 0.5em 0;
@@ -404,6 +409,12 @@ a.xref {
 tt, code, pre {
   background-color: var(--highlight-color);
   font: 14px/22px 'Oxygen Mono', monospace;
+}
+tt, code {
+  /* changing the font for inline elements leads to different ascender
+     and descender heights; as we want to retain baseline alignment,
+     remove leading to avoid altering the final height of lines */
+  line-height: 0;
 }
 pre {
   border: 1px solid var(--line-color);
@@ -1006,11 +1017,11 @@ address div.right {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SCIM</td>
-<td class="right">July 2021</td>
+<td class="right">September 2021</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Doe</td>
-<td class="center">Expires 13 January 2022</td>
+<td class="center">Expires 18 March 2022</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1023,12 +1034,12 @@ address div.right {
 <dd class="internet-draft">draft-birkholz-scim-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-07-12" class="published">12 July 2021</time>
+<time datetime="2021-09-14" class="published">14 September 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2022-01-13">13 January 2022</time></dd>
+<dd class="expires"><time datetime="2022-03-18">18 March 2022</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1073,7 +1084,7 @@ address div.right {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 13 January 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 18 March 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1101,77 +1112,77 @@ address div.right {
         <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
 <a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
         </h2>
-<nav class="toc"><ul class="compact ulBare toc ulEmpty">
-<li class="compact ulBare toc ulEmpty" id="section-toc.1-1.1">
+<nav class="toc"><ul class="ulEmpty compact ulBare toc">
+<li class="ulEmpty compact ulBare toc" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
 </li>
-          <li class="compact ulBare toc ulEmpty" id="section-toc.1-1.2">
+          <li class="ulEmpty compact ulBare toc" id="section-toc.1-1.2">
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-terminology" class="xref">Terminology</a></p>
-<ul class="ulEmpty compact ulBare toc">
-<li class="ulEmpty compact ulBare toc" id="section-toc.1-1.2.2.1">
+<ul class="compact ulEmpty ulBare toc">
+<li class="compact ulEmpty ulBare toc" id="section-toc.1-1.2.2.1">
                 <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="xref">2.1</a>.  <a href="#name-requirements-notation" class="xref">Requirements Notation</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact ulBare toc ulEmpty" id="section-toc.1-1.3">
+          <li class="ulEmpty compact ulBare toc" id="section-toc.1-1.3">
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-scim" class="xref">SCIM</a></p>
-<ul class="ulEmpty compact ulBare toc">
-<li class="ulEmpty compact ulBare toc" id="section-toc.1-1.3.2.1">
+<ul class="compact ulEmpty ulBare toc">
+<li class="compact ulEmpty ulBare toc" id="section-toc.1-1.3.2.1">
                 <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="xref">3.1</a>.  <a href="#name-the-scim-diagram" class="xref">The SCIM Diagram</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact ulBare toc ulEmpty" id="section-toc.1-1.4">
+          <li class="ulEmpty compact ulBare toc" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-scim-roles-and-messages" class="xref">SCIM Roles and Messages</a></p>
-<ul class="ulEmpty compact ulBare toc">
-<li class="ulEmpty compact ulBare toc" id="section-toc.1-1.4.2.1">
+<ul class="compact ulEmpty ulBare toc">
+<li class="compact ulEmpty ulBare toc" id="section-toc.1-1.4.2.1">
                 <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-roles" class="xref">Roles</a></p>
-<ul class="ulEmpty compact ulBare toc">
-<li class="ulEmpty compact ulBare toc" id="section-toc.1-1.4.2.1.2.1">
+<ul class="compact ulEmpty ulBare toc">
+<li class="compact ulEmpty ulBare toc" id="section-toc.1-1.4.2.1.2.1">
                     <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="xref">4.1.1</a>.  <a href="#name-claim-set-generator" class="xref">Claim-Set Generator</a></p>
 </li>
-                  <li class="ulEmpty compact ulBare toc" id="section-toc.1-1.4.2.1.2.2">
+                  <li class="compact ulEmpty ulBare toc" id="section-toc.1-1.4.2.1.2.2">
                     <p id="section-toc.1-1.4.2.1.2.2.1"><a href="#section-4.1.2" class="xref">4.1.2</a>.  <a href="#name-issuer" class="xref">Issuer</a></p>
 </li>
                 </ul>
 </li>
-              <li class="ulEmpty compact ulBare toc" id="section-toc.1-1.4.2.2">
+              <li class="compact ulEmpty ulBare toc" id="section-toc.1-1.4.2.2">
                 <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-messages" class="xref">Messages</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact ulBare toc ulEmpty" id="section-toc.1-1.5">
+          <li class="ulEmpty compact ulBare toc" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-issuers-and-guaranteed-prop" class="xref">Issuers and Guaranteed Properties</a></p>
-<ul class="ulEmpty compact ulBare toc">
-<li class="ulEmpty compact ulBare toc" id="section-toc.1-1.5.2.1">
+<ul class="compact ulEmpty ulBare toc">
+<li class="compact ulEmpty ulBare toc" id="section-toc.1-1.5.2.1">
                 <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-component-properties-and-en" class="xref">Component Properties and End-to-End Properties</a></p>
-<ul class="ulEmpty compact ulBare toc">
-<li class="ulEmpty compact ulBare toc" id="section-toc.1-1.5.2.1.2.1">
+<ul class="compact ulEmpty ulBare toc">
+<li class="compact ulEmpty ulBare toc" id="section-toc.1-1.5.2.1.2.1">
                     <p id="section-toc.1-1.5.2.1.2.1.1"><a href="#section-5.1.1" class="xref">5.1.1</a>.  <a href="#name-integrity-of-the-ledger" class="xref">Integrity of the Ledger</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
-          <li class="compact ulBare toc ulEmpty" id="section-toc.1-1.6">
+          <li class="ulEmpty compact ulBare toc" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-cddl" class="xref">CDDL</a></p>
 </li>
-          <li class="compact ulBare toc ulEmpty" id="section-toc.1-1.7">
+          <li class="ulEmpty compact ulBare toc" id="section-toc.1-1.7">
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-privacy-considerations" class="xref">Privacy Considerations</a></p>
 </li>
-          <li class="compact ulBare toc ulEmpty" id="section-toc.1-1.8">
+          <li class="ulEmpty compact ulBare toc" id="section-toc.1-1.8">
             <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
 </li>
-          <li class="compact ulBare toc ulEmpty" id="section-toc.1-1.9">
+          <li class="ulEmpty compact ulBare toc" id="section-toc.1-1.9">
             <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
 </li>
-          <li class="compact ulBare toc ulEmpty" id="section-toc.1-1.10">
+          <li class="ulEmpty compact ulBare toc" id="section-toc.1-1.10">
             <p id="section-toc.1-1.10.1"><a href="#section-10" class="xref">10</a>. <a href="#name-normative-references" class="xref">Normative References</a></p>
 </li>
-          <li class="compact ulBare toc ulEmpty" id="section-toc.1-1.11">
+          <li class="ulEmpty compact ulBare toc" id="section-toc.1-1.11">
             <p id="section-toc.1-1.11.1"><a href="#appendix-A" class="xref">Appendix A</a>.  <a href="#name-mapping-to-rats" class="xref">Mapping to RATS</a></p>
 </li>
-          <li class="compact ulBare toc ulEmpty" id="section-toc.1-1.12">
+          <li class="ulEmpty compact ulBare toc" id="section-toc.1-1.12">
             <p id="section-toc.1-1.12.1"><a href="#appendix-B" class="xref"></a><a href="#name-authors-address" class="xref">Author's Address</a></p>
 </li>
         </ul>
@@ -1305,28 +1316,28 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 <pre>
  .---------------------.                    .---------------------.
 | SoftwareAgent:        |    generates     | Message:              |
-| Evidence Generator    +-----------------&gt;| Evidence              |
+| Claim Generator       +-----------------&gt;| Claim                 |
  '---------------------'                    '---------------------'
             ^                                          ^
             | owns                                     | consumes
             |                                          |
  .----------+----------.                    .----------+----------.
 | Agent:                |   generates +    | SoftwareAgent:        |
-| Issuing Authority     +-----------------&gt;| Evidence Signer       |
+| Issuing Authority     +-----------------&gt;| Claim Signer          |
  '----------+----------'   header-claims    '----------+----------'
             |                                          |
             | owns                                     | generates
             v                                          v
  .---------------------.                    .---------------------.
 | SoftwareAgent:        |     consumes     | Message:              |
-| Receipt Requester     +-----------------&gt;| Signed Evidence       |
+| Receipt Requester     +-----------------&gt;| Signed Claim          |
  '----------+-----+----'                    '---------------------'
             |     |
             |      '----------------.
             v generates              | consumes
  .---------------------.             |      .---------------------.
 | Message:              |             '---&gt;| Message:              |
-| Receipt Request       |             '---&gt;| Receipt               |
+| Receipt Request       |             '---&gt;| Registered Claim      |
  '----------+----------'             |      '---------------------'
             ^ consumes               | generates
             |      .----------------'
@@ -1468,7 +1479,7 @@ appear in all capitals, as shown here.<a href="#section-2.1-1" class="pilcrow">�
 <dl class="references">
 <dt id="I-D.ietf-sacm-coswid">[I-D.ietf-sacm-coswid]</dt>
       <dd>
-<span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Fitzgerald-McKay, J.</span>, <span class="refAuthor">Schmidt, C.</span>, and <span class="refAuthor">D. Waltermire</span>, <span class="refTitle">"Concise Software Identification Tags"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-sacm-coswid-17</span>, <time datetime="2021-02-22" class="refDate">22 February 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-sacm-coswid-17">https://datatracker.ietf.org/doc/html/draft-ietf-sacm-coswid-17</a>&gt;</span>. </dd>
+<span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Fitzgerald-McKay, J.</span>, <span class="refAuthor">Schmidt, C.</span>, and <span class="refAuthor">D. Waltermire</span>, <span class="refTitle">"Concise Software Identification Tags"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-sacm-coswid-18</span>, <time datetime="2021-07-12" class="refDate">12 July 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-sacm-coswid-18">https://datatracker.ietf.org/doc/html/draft-ietf-sacm-coswid-18</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
       <dd>
